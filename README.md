@@ -2,13 +2,13 @@
 
 ### 安装
 ###### git 安装方法
-    *  git clone git@github.com:lovezhao311/luffycms.git ./
-    *  cd thinkphp
-    *  git clone git@github.com:top-think/framework.git ./
+    +  git clone git@github.com:lovezhao311/luffycms.git ./
+    +  cd thinkphp
+    +  git clone git@github.com:top-think/framework.git ./
 ###### 手动下载安装 
-    * 1、下载luffycms [![Downloads](https://img.shields.io/github/downloads/top-think/framework/total.svg)](https://github.com/lovezhao311/luffycms/archive/master.zip)
-    * 2、下载 [![Downloads](https://img.shields.io/github/downloads/top-think/framework/total.svg)](https://github.com/top-think/framework/archive/master.zip)
-    * 3、解压 Luffycms  然后切换到 thinkphp目录 把thinkphp5解压 到这个目录里
+    + 下载luffycms [![Downloads](https://img.shields.io/github/downloads/top-think/framework/total.svg)](https://github.com/lovezhao311/luffycms/archive/master.zip)
+    + 下载 [![Downloads](https://img.shields.io/github/downloads/top-think/framework/total.svg)](https://github.com/top-think/framework/archive/master.zip)
+    + 解压 Luffycms  然后切换到 thinkphp目录 把thinkphp5解压 到这个目录里
     
 
 ### 简介
