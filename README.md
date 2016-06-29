@@ -4,9 +4,9 @@
 
 ###### git 安装方法
 
- + git clone git@github.com:lovezhao311/luffycms.git ./
- + cd thinkphp
- + git clone git@github.com:top-think/framework.git ./
+    > git clone git@github.com:lovezhao311/luffycms.git ./
+    > cd thinkphp
+    > git clone git@github.com:top-think/framework.git ./
 
 ###### 手动下载安装 
 
