@@ -72,9 +72,9 @@
                     {volist name="ruleData" id="vo"}
                     <li class="nav-item">
                         {if condition="isset($vo['sub']) && !empty($vo['sub'])"}
-                        <a href="javascript:void(0);" >
+                        <a href="javascript:void(0);" data-id="{$vo['id']}">
                     {else /}
-                        <a href="{:url($vo['name'])}" class="ng-scope">
+                        <a href="{:url($vo['name'])}" class="ng-scope" data-id="{$vo['id']}">
                     {/if}
                             <div class="nav-icon"><span class="{$vo.icon}"></span></div>
                             <span class="nav-title ng-binding">{$vo.title}</span>
@@ -82,7 +82,7 @@
                         <ul>
                             {volist name="vo['sub']" id="v"}
                             <li>
-                                <a href="{:url($v['name'])}" class="ng-scope">
+                                <a href="{:url($v['name'])}" class="ng-scope" data-id="{$v['id']}">
                                     <div class="nav-icon"><span class="{$v.icon}"></span></div>
                                     <span class="nav-title ng-binding">{$v['title']}</span>
                                 </a>

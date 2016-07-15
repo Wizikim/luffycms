@@ -18,7 +18,7 @@
             $(tab).find('a').removeClass('active');
             $(tab).find('a').eq(active).addClass('active');
             $('.' + iframeClass).hide();
-            $('[name="' + iframeClass + active + '"]').show();
+            $('[name="' + iframeClass + item.id + '"]').show();
 
 
             if (IframeList[active].left < tabMarginLeft) {
@@ -27,7 +27,7 @@
                 tabMarginLeft = IframeList[active].left;
             }
 
-            console.log($(tab).find('a').eq(active).position());
+            // console.log($(tab).find('a').eq(active).position());
             $(tab).css({ marginLeft: -tabMarginLeft });
         },
         removeIframe = function(item) {
@@ -36,8 +36,8 @@
                 return false;
             }
 
-            $('.tab-a-' + active).remove();
-            $('[name="' + iframeClass + active + '"]').remove();
+            $('.tab-a-' + item.id).remove();
+            $('[name="' + iframeClass + item.id + '"]').remove();
             IframeList.splice(active, 1);
 
             if(active != 0){
@@ -75,6 +75,7 @@
             item = {
                 "href": $this.attr('href'),
                 "title": $this.text(),
+                "id" : $this.data('id')
             };
 
         if (item.href == 'undefined' || item.href == '' || item.title == '' || item.href == 'javascript:void(0);') {
@@ -87,7 +88,7 @@
 
             var d = $("<a>", {
                 href: 'javascript:void(0);',
-                "class": 'tab-a-' + active,
+                "class": 'tab-a-' + item.id,
                 html: item.title,
                 click: function() {
                     e.preventDefault();
@@ -101,7 +102,7 @@
                     $(this).trigger('cilck.tab.close', [item]);
                 }
             });
-            var f = $("<iframe>", { "class": iframeClass, name: iframeClass + active, width: "100%", height: '100%', src: item.href, frameborder: 0 });
+            var f = $("<iframe>", { "class": iframeClass, name: iframeClass + item.id, width: "100%", height: '100%', src: item.href, frameborder: 0 });
 
             c.appendTo(d);
             d.appendTo(tab);
@@ -124,7 +125,7 @@
 
     if (typeof Array.prototype.exists == 'undefined') Array.prototype.exists = function(item) {
         for (var i = this.length - 1; i >= 0; i--) {
-            if (this[i].href == item.href && this[i].title == item.title) {
+            if (this[i].id == item.id) {
                 return i;
             }
         }
