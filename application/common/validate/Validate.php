@@ -15,7 +15,7 @@ trait Validate
     public function exist($value, $rule, $data)
     {
         if (intval($value) === 0) {
-            return true;
+            // return true;
         }
         if (is_string($rule)) {
             $rule = explode(',', $rule);
