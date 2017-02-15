@@ -79,7 +79,7 @@ class Rule extends Model
         return Db::table('role_rule')
             ->field('r.id,r.name,r.title')
             ->alias('rr')
-            ->join('rule as r', 'rr.rule_id=r.id')
+            ->join('rule r', 'rr.rule_id=r.id')
             ->where('rr.role_id', $roleId)
             ->order('r.parent_id ASC , r.sort ASC')
             ->select();
@@ -108,7 +108,7 @@ class Rule extends Model
 
         $rule = Db::table('role_rule')
             ->alias('rr')
-            ->join('rule as r', 'rr.rule_id=r.id')
+            ->join('rule r', 'rr.rule_id=r.id')
             ->where('rr.role_id', $roleId)
             ->where('r.name', $name)
             ->count('r.id');
@@ -132,7 +132,7 @@ class Rule extends Model
         $ruleRows = Db::table('role_rule')
             ->field('r.id, r.parent_id,r.name,r.title,r.icon')
             ->alias('rr')
-            ->join('rule as r', 'rr.rule_id=r.id')
+            ->join('rule r', 'rr.rule_id=r.id')
             ->where('rr.role_id', $roleId)
             ->where('r.islink', 1)
             ->order('r.parent_id ASC , r.sort ASC')

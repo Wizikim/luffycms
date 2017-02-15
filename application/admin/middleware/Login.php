@@ -14,7 +14,7 @@ class Login
     {
         $request = Request::instance();
         if (Session::has(Config::get('login_session_identifier')) && ($user = Session::get(Config::get('login_session_identifier')))) {
-            if ($request->controller() == 'common') {
+            if (strtolower($request->controller()) == 'common') {
                 if ($request->isAjax()) {
                     return ['code' => 2, 'url' => '/admin/index/index'];
                 } else {
@@ -38,8 +38,7 @@ class Login
                     }
                 }
             }
-        } elseif ($request->controller() != 'common') {
-
+        } elseif (strtolower($request->controller()) != 'common') {
             // 没有登录标识说明没登录 直接清除登录再跳转到登录页面
             Session::clear();
             if ($request->isAjax()) {
