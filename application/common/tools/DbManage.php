@@ -17,6 +17,27 @@ class DbManage
     private static $sqlEnd = ";";
 
     /**
+     * 执行sql文件
+     */
+    public static function execute($filename,$db = false){
+        if(!file_exists($filename) || is_readable($filename)){
+             throw new \Exception('sql 文件不存在或者不可读！');
+        }
+
+        if($db == false){
+            $db = Db::connect();
+        }
+
+        $sqlString = file_get_contents($filename);
+        $sqlArray = explode(';', $sqlString);
+
+        foreach ($sqlArray as $sql) {
+            $db->execute($sql);
+        }
+
+        return true;
+    }
+    /**
      * [backup description]
      * @author luffy<luffyzhao@vip.126.com>
      * @dateTime 2016-05-27T17:54:27+0800

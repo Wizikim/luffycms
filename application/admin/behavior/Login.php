@@ -1,5 +1,5 @@
 <?php
-namespace app\admin\middleware;
+namespace app\admin\behavior;
 
 use think\Request;
 use think\response\Redirect;

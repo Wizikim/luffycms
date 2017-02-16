@@ -1,6 +1,7 @@
 <?php
 return [
-    'action_begin' => [
-        "\\app\\admin\\middleware\\Login",
-    ],
+    'module_init' => [
+        "app\\common\\behavior\\Install",
+        "app\\admin\\behavior\\Login",
+    ]
 ];
